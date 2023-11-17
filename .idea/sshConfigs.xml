@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="ec2-52-78-3-130.ap-northeast-2.compute.amazonaws.com" id="743d354d-417d-4640-969d-10741df9d734" keyPath="$PROJECT_DIR$/../../aws-keypair/KPC.pem" port="22" nameFormat="DESCRIPTIVE" username="ubuntu" />
+    </configs>
+  </component>
+</project>
