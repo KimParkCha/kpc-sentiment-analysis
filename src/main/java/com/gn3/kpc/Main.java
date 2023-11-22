@@ -104,12 +104,13 @@ public class Main {
             for (DTO dto : dtos) {
                 String content = ((NewsDTO) dto).getContent();
                 String gptResult = chatGPTService.chatGPT(content, "\n 이 기사의 감성을 긍정 혹은 부정으로 분석해줘");
-                if (gptResult.contains("긍정")) result.add("긍정");
-                else if (gptResult.contains("부정")) result.add("부정");
+                if (gptResult.contains("긍정")) result.add("positive");
+                else if (gptResult.contains("부정")) result.add("negative");
             }
 
             return result.iterator();
         });
+
         List<Tuple2<String, Integer>> result = emotionResult.mapToPair(s -> new Tuple2<>(s, 1)).reduceByKey((i1, i2) -> i1 + i2).collect();
         Jedis jedis = ac.getBean(JedisPool.class).getResource();
         for (Tuple2<String, Integer> tuple : result) {
